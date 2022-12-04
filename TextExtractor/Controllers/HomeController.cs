@@ -32,7 +32,7 @@ namespace TextExtractor.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public async ValueTask<IActionResult> Index(string searchedWord)
+        public async Task<IActionResult> Index(string searchedWord)
         {
             try
             {
@@ -112,7 +112,7 @@ namespace TextExtractor.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        private async ValueTask<(bool, string path)> UploadFile(IFormFile file)
+        private async Task<(bool, string path)> UploadFile(IFormFile file)
         {
             string path = string.Empty;
             string fileName = string.Empty;
